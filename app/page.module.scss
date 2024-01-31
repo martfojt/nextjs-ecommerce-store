@@ -1,0 +1,61 @@
+.navbar{
+  text-align: center;
+  width: 100vw;
+  height: 6vh;
+  border-style: solid;
+border-color: red;
+}
+.mainBox{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+// Same styles for 4 divs with different images
+@mixin picture-background($image-url) {
+  background-image: url($image-url);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 40vw;
+  height: 40vh;
+  margin: 3vh;
+  text-align: center;
+  border-style: solid;
+  border-color: red;
+  color: red;
+}
+
+// Set different picture to each div
+.picture1 {
+  @include picture-background('/placeholder1.png'); // Assuming placeholder2.png is in the public folder
+}
+
+.picture2 {
+  @include picture-background('/placeholder2.png');
+}
+
+.picture3 {
+  @include picture-background('/placeholder3.png');
+}
+
+.picture4 {
+  @include picture-background('/placeholder4.png');
+}
+
+
+
+.pictures img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This property makes the image cover the available space without stretching it */
+}
+
+.backgroundImage {
+  background-image: url('./space.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
