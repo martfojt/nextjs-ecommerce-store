@@ -47,7 +47,32 @@ border-color: red;
   @include picture-background('/placeholder4.png');
 }
 
+.pictures {
+  transition: filter 0.3s ease;
+  transition: 1s ease;
+  position: relative;
+  &:hover {
+    filter: blur(10px);
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    transition: 1s ease;
+    cursor: pointer;
+    .hoverText {
+      display: block;
 
+  }
+}
+}
+
+.hoverText {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;}
 
 .pictures img {
   width: 100%;
@@ -56,7 +81,7 @@ border-color: red;
 }
 
 .backgroundImage {
-  background-image: url('./space.jpeg');
+  background-image: url('/space.jpeg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
