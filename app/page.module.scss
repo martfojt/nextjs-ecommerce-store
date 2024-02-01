@@ -100,3 +100,29 @@ height: 5vh;
   width: 80vw;
   height: 6vh;
 }
+
+.productDivMain{
+  max-width: 83vw;
+  margin: 3vh auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.productDivLeft{
+  width: 40vw;
+  height: 86vh;
+  border-style: solid;
+border-color: red;
+border-radius: 40px;
+}
+
+.productDivRight{
+  width: 40vw;
+  height: 90vh;
+  border-style: solid;
+border-color: red;
+border-radius: 40px;
+}
