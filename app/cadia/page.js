@@ -9,7 +9,7 @@ export const metadata = {
 export default function MiddleEarth() {
   return (
     <div>
-      <h1>Welcome to Middle-Earth</h1>
+      <h1>Welcome to Cadia</h1>
       {}
     </div>
   );
