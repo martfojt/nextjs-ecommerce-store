@@ -6,6 +6,7 @@ export default function Home() {
     <div>
       <header className={styles.navbar}>
         <div className={styles.test}>
+          <img className={styles.mainLogo} src="./mainlogo.png" alt="sss" />
           <Link href="/">Home</Link>
           <Link href="/about">About</Link>
           <img
