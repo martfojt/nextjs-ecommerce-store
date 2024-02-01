@@ -11,9 +11,9 @@ export const metadata = {
 };
 
 const images = [
-  './placeholder1.png',
-  './placeholder2.png',
-  './placeholder3.png',
+  './middleearth1.png',
+  './middleearth2.png',
+  './middleearth3.png',
 ];
 
 export default function MiddleEarth() {
@@ -61,16 +61,6 @@ export default function MiddleEarth() {
               peace and wisdom, a stark contrast to the foreboding realm of
               Mordor, with its volcanic landscapes and the ever-watchful eye of
               Sauron.
-            </p>
-            <br />
-            <p>
-              Exploring Middle Earth is as much about the journey as the
-              destination. You'll wander through the rustic villages of Men, the
-              opulent halls of Dwarven kingdoms under the mountains, and the
-              hidden valleys where time seems to stand still. The landscapes are
-              a tapestry of stories and legends, each mountain pass, river, and
-              forest glade holding its own tales of heroism, adventure, and
-              ancient magic.
             </p>
           </div>
         </div>
