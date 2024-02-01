@@ -1,14 +1,14 @@
-.navbar{
-text-align: center;
-width: 83vw;
-height: 6vh;
-margin: auto;
-background: rgba(0, 0, 0, 0.8);
-border-bottom-left-radius: 40px;
-border-bottom-right-radius: 40px;
+.navbar {
+  text-align: center;
+  width: 83vw;
+  height: 6vh;
+  margin: auto;
+  background: rgba(0, 0, 0, 0.8);
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
 }
 
-.mainBox{
+.mainBox {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -16,24 +16,40 @@ border-bottom-right-radius: 40px;
   align-items: center;
 }
 
-// Same styles for 4 divs with different images
 @mixin picture-background($image-url) {
   background-image: url($image-url);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.pictures {
   width: 40vw;
   height: 40vh;
   margin: 3vh;
-  text-align: center;
-  border-style: none;
   border-radius: 40px;
-  box-shadow:10px 10px 10px #000;
-  -webkit-box-shadow:10px 10px 10px #000;
-  -moz-box-shadow: 10px 10px 10px #000;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+
+  &:hover .background {
+    filter: blur(10px);
+    transform: scale(1.1);
+  }
+
+  &:hover .hoverText {
+    display: block;
+  }
 }
 
-// Set different picture to each div
+.background {
+  width: 100%;
+  height: 100%;
+  transition: filter 0.3s ease, transform 1s ease;
+  position: absolute;
+  border-radius: 40px;
+}
+
 .picture1 {
   @include picture-background('/placeholder1.png');
 }
@@ -50,35 +66,6 @@ border-bottom-right-radius: 40px;
   @include picture-background('/placeholder4.png');
 }
 
-.pictures {
-  transition: filter 0.3s ease, transform 1s ease;
-  position: relative;
-  &:hover {
-    filter: blur(10px);
-    transform: scale(1.1);
-    cursor: pointer;
-
-    .hoverText {
-      display: block;
-      z-index: 2;
-    }
-
-    &::after {
-      content: " ";
-      z-index: 1;
-      display: block;
-      position: absolute;
-      height: 100%;
-      width: 100%;
-      top: 0;
-      left: 0;
-      right: 0;
-      background: rgba(0, 0, 0, 0.7);
-      border-radius: 40px;
-    }
-  }
-}
-
 .hoverText {
   display: none;
   position: absolute;
@@ -87,15 +74,8 @@ border-bottom-right-radius: 40px;
   transform: translate(-50%, -50%);
   color: white;
   text-align: center;
-  &:hover{
-    display: block;
-  }
-}
-
-.pictures img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  z-index: 2;
+  white-space: nowrap;
 }
 
 .backgroundImage {

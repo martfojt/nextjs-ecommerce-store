@@ -5,17 +5,29 @@ export default function Home() {
     <div>
       <header className={styles.navbar}>Header</header>
       <div className={styles.mainBox}>
-        <div className={`${styles.pictures} ${styles.picture1}`}>
-          <span className={styles.hoverText}>Explore Middle-Earth</span>
+        <div className={styles.pictures}>
+          <div className={`${styles.background} ${styles.picture1}`}></div>
+          <span className={styles.hoverText}>
+            <h1>Explore Middle-Earth</h1>
+          </span>
         </div>
-        <div className={`${styles.pictures} ${styles.picture2}`}>
-          <span className={styles.hoverText}>Travel to Cadia</span>
+        <div className={styles.pictures}>
+          <div className={`${styles.background} ${styles.picture2}`}></div>
+          <span className={styles.hoverText}>
+            <h1>Travel to Cadia</h1>
+          </span>
         </div>
-        <div className={`${styles.pictures} ${styles.picture3}`}>
-          <span className={styles.hoverText}>Experience Hogwarts</span>
+        <div className={styles.pictures}>
+          <div className={`${styles.background} ${styles.picture3}`}></div>
+          <span className={styles.hoverText}>
+            <h1>Experience Hogwarts</h1>
+          </span>
         </div>
-        <div className={`${styles.pictures} ${styles.picture4}`}>
-          <span className={styles.hoverText}>Journey to Azeroth</span>
+        <div className={styles.pictures}>
+          <div className={`${styles.background} ${styles.picture4}`}></div>
+          <span className={styles.hoverText}>
+            <h1>Journey to Azeroth</h1>
+          </span>
         </div>
       </div>
     </div>
