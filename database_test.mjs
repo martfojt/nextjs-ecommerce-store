@@ -1,6 +1,9 @@
+import dotenv from 'dotenv';
 import postgres from 'postgres';
 
-const sql = postgres('postgres://marf:Vienna2024@localhost:5432/ecommerce_db');
+dotenv.config();
+
+const sql = postgres();
 
 console.log(
   await sql`
