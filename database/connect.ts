@@ -1,23 +1,30 @@
-import { readFileSync } from 'node:fs';
-import dotenv from 'dotenv';
-import postgres from 'postgres';
-
-function setEnvironmentVariables() {
-  dotenv.config();
-
-  const unconfiguredEnvVars = Object.keys(
-    dotenv.parse(readFileSync('./.env.example')),
-  ).filter((exampleKey) => !process.env[exampleKey]);
-
-  if (unconfiguredEnvVars.length > 0) {
-    throw new Error(
-      `.env.example environment ${
-        unconfiguredEnvVars.length > 1 ? 'variables' : 'variable'
-      } ${unconfiguredEnvVars.join(', ')} not configured in .env file`,
-    );
-  }
-}
+import 'server-only';
+import { unstable_noStore as noStore } from 'next/cache';
+import postgres, { Sql } from 'postgres';
+import { setEnvironmentVariables } from '../util/config';
 
 setEnvironmentVariables();
 
-export const sql = postgres();
+declare module globalThis {
+  let postgresSqlClient: Sql;
+}
+
+function connectOneTimeToDatabase() {
+  if (!('postgresSqlClient' in globalThis)) {
+    globalThis.postgresSqlClient = postgres({
+      transform: {
+        ...postgres.camel,
+        undefined: null,
+      },
+    });
+  }
+
+  return ((
+    ...sqlParameters: Parameters<typeof globalThis.postgresSqlClient>
+  ) => {
+    noStore();
+    return globalThis.postgresSqlClient(...sqlParameters);
+  }) as typeof globalThis.postgresSqlClient;
+}
+
+export const sql = connectOneTimeToDatabase();

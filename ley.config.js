@@ -1,4 +1,4 @@
-import { setEnvironmentVariables } from './database/connect.ts';
+import { setEnvironmentVariables } from './util/config.js';
 
 setEnvironmentVariables();
 
